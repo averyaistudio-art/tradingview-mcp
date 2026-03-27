@@ -4,139 +4,187 @@ from typing import Dict, List, Set
 
 # Sector mapping: sector name -> set of ticker symbols (without EGX: prefix)
 EGX_SECTORS: Dict[str, Set[str]] = {
+
     "banks": {
-        "COMI",  # Commercial International Bank
-        "QNBE",  # QNB Alahli
-        "ADIB",  # Abu Dhabi Islamic Bank Egypt
-        "SAIB",  # Societe Arabe Internationale de Banque
-        "HDBK",  # Housing & Development Bank
+        "CANA",  # Suez Canal Bank
+        "EXPA",  # Export Development Bank
+        "CIEB",  # Credit Agricole Egypt
+        "SAUD",  # Al Baraka Bank
+        "UBEE",  # The United Bank
         "EGBE",  # Egyptian Gulf Bank
-        "ARAB",  # Arab Investment Bank
-        "ABUK",  # Abu Dhabi Islamic Bank - Misr
-        "FAIT",  # Faisal Islamic Bank of Egypt
-        "SAUD",  # Saudi Egyptian Finance
+        "HDBK",  # Housing & Development Bank
+        "FAIT",  # Faisal Islamic Bank
+        "QNBE",  # QNB Alahli
+        "COMI",  # CIB
+        "ADIB",  # ADIB Egypt
     },
-    "real_estate": {
-        "TMGH",  # Talaat Moustafa Group
-        "ORHD",  # Orascom Development (Ora Developers)
-        "PHDC",  # Palm Hills Development
-        "EMFD",  # Emaar Misr
-        "MNHD",  # Madinet Nasr Housing
-        "OCDI",  # Orascom Construction & Development
-        "HELI",  # Heliopolis Housing
-        "ADRI",  # El Obour Real Estate
-        "AREH",  # Arabia Real Estate
-        "HDST",  # Hyde Park Development
-        "PRCL",  # Porto Group
-        "RREI",  # Rooya Real Estate
-        "NAHO",  # Nasr City Housing
-        "IDRE",  # Iwan Development
+
+    "basic_resources": {
+        "ATQA",
+        "MICH",
+        "KZPC",
+        "FERC",
+        "ASCM",
+        "SKPC",
+        "ISMQ",
+        "EGCH",
+        "MFPC",
+        "IRON",
+        "ALUM",
+        "MFSC",
+        "EGAL",
+        "ABUK",
     },
-    "financial_services": {
-        "EFIH",  # EFG Hermes (Hermes Holding)
-        "HRHO",  # EFG Hermes Holding
-        "CIEB",  # CI Capital
-        "CCAP",  # Corplease
-        "INFI",  # Infinity
-        "BTFH",  # Beltone Financial
-        "EDFM",  # El Taameer Finance
-        "ACAP",  # Arabia Capital
-        "ICFC",  # Al Ahly for Finance & Investment
-        "CNFN",  # Canal Finance
-        "VALU",  # Valu (EFG Hermes fintech)
-        "CFGH",  # CI Financial Group
-    },
-    "food_and_beverages": {
-        "JUFO",  # Juhayna Food
-        "EAST",  # Eastern Company (Tobacco)
-        "SUGR",  # Delta Sugar
-        "POUL",  # Cairo Poultry
-        "CERA",  # Cairo for Oils
-        "GOUR",  # Gourmet Egypt
-        "MFPC",  # Middle East Food Products
-        "AJWA",  # Ajwa Group
-        "ISMA",  # Al-Ismaelia National Food
-        "KABO",  # Kabo for Food
-        "ELKA",  # El Kahera for Foods
-    },
-    "construction_and_materials": {
-        "OCDI",  # Orascom Construction
-        "SVCE",  # Suez Cement
-        "SCEM",  # Sinai Cement
-        "ARCC",  # Arabian Cement
-        "IRON",  # Egyptian Iron & Steel
-        "ALUM",  # Egypt Aluminum
-        "CERA",  # Ceramica Cleopatra
-        "MISR",  # Misr Cement
-        "MBSC",  # Misr Beni Suef Cement
-        "ETEL",  # El Ezz Steel
-    },
-    "telecommunications": {
-        "ETEL",  # Telecom Egypt
-        "ORWE",  # Orascom Investment Holding
-        "RAYA",  # Raya Holding
-        "MKIT",  # Mobikit
-    },
-    "energy_and_utilities": {
-        "AMOC",  # Alexandria Mineral Oils
-        "MOIL",  # Sidi Kerir Petrochemicals
-        "TAQA",  # TAQA Arabia
-        "EGAS",  # Egypt Gas
-        "EGCH",  # Egyptian Chemical Industries
-        "EPCO",  # Egyptian Petrochemicals
-        "ELWA",  # El Wadi for Agro-Industrial
-    },
+
     "healthcare_and_pharma": {
-        "PHAR",  # Pharaon for Chemicals & Pharma
-        "ISPH",  # Ibnsina Pharma
-        "OCPH",  # October Pharma
-        "SPMD",  # Speed Medical
-        "AXPH",  # Alex Pharma
-        "NIPH",  # Nile Pharma
-        "BIOC",  # Bio-Diagnostics
-        "MIPH",  # Medical International Pharma
+        "MIPH",
+        "RMDA",
+        "AXPH",
+        "OCPH",
+        "APPC",
+        "SPMD",
+        "MCRO",
+        "ISPH",
+        "CLHO",
+        "PRMH",
     },
-    "industrial": {
-        "AMER",  # Amer Group
-        "ELEC",  # El Sewedy Electric
-        "GBCO",  # GB Auto (Ghabbour Auto)
-        "MOED",  # Modern Egypt Development
-        "ENGC",  # Engineering for the Petroleum
-        "ACGC",  # Arab Cotton Ginning
-        "AFDI",  # Al Ahram for Detergent Industries
-        "KZPC",  # Kima (Aswan for Fertilizers)
-        "GTEX",  # Golden Textiles
+
+    "industrial_goods_and_services": {
+        "ENGC",
+        "MBEN",
+        "SWDY",
+        "GDWA",
+        "PACK",
+        "ELEC",
+        "AUTO",
     },
-    "technology": {
-        "RAYA",  # Raya Holding (IT services)
-        "FWRY",  # Fawry for Banking Technology
-        "DGTZ",  # Digitize
-        "SWDY",  # Swedy Electric (tech arm)
+
+    "real_estate": {
+        "ELKA",
+        "MAAL",
+        "ASPI",
+        "EGTS",
+        "ORHD",
+        "MNHD",
+        "OCDI",
+        "EMFD",
+        "TMGH",
+        "PHDC",
+        "HELI",
+        "ZMID",
+        "ARAB",
+        "PRES",
+        "SCCD",
     },
+
     "tourism_and_entertainment": {
-        "MHOT",  # Misr Hotels
-        "ODIN",  # Odin Investments
-        "LUTS",  # Lotus for Hotels
-        "GTWL",  # Golden Pyramids Plaza
-        "UTOP",  # Utopia
+        "MHOT",
+        "MARS",
+        "SHAR",
+        "ROWA",
+        "WADI",
+        "PHTV",
+        "RMCO",
     },
-    "textiles_and_clothing": {
-        "GTEX",  # Golden Textiles
-        "SPIN",  # Spinning & Weaving
-        "NCCW",  # Nasr Clothing
-        "ELNA",  # El Nasr Clothing & Textiles
+
+    "utilities": {
+        "EGAS",
+        "TAQA",
     },
-    "chemicals": {
-        "EGCH",  # Egyptian Chemical Industries
-        "KZPC",  # Kima (Fertilizers & Chemicals)
-        "MFSC",  # Misr Fertilizers
-        "AFMC",  # Alex Fertilizers & Chemicals
-        "SCFM",  # South Cairo Flour Mills
+
+    "telecommunications_media_and_technology": {
+        "DGTZ",
+        "MCIT",
+        "EGSA",
+        "EFIH",
+        "RACC",
+        "ORAS",
+        "FWRY",
+        "ETEL",
     },
+
+    "food_and_beverages": {
+        "NATR",
+        "NKPD",
+        "GSSC",
+        "SUGR",
+        "ADPC",
+        "ISMA",
+        "MPCO",
+        "EAST",
+        "OILS",
+        "JUFO",
+        "EFID",
+        "DOMT",
+        "OBRI",
+    },
+
+    "energy_and_support_services": {
+        "MOIL",
+        "AMOC",
+    },
+
     "transportation_and_logistics": {
-        "ALCN",  # Alexandria Containers
-        "CSAG",  # Canal Shipping Agencies
-        "EPPK",  # Egyptian Packing & Packaging
+        "ETRS",
+        "ALCN",
+        "CSAG",
+    },
+
+    "education_services": {
+        "MOED",
+        "SCTS",
+        "TALM",
+        "CAED",
+        "CIRA",
+    },
+
+    "non_bank_financial_services": {
+        "ACTF",
+        "ARAB",
+        "NAHO",
+        "RAYA",
+        "CICH",
+        "BTFH",
+        "EAC",
+        "PRMH",
+        "ASPI",
+        "CCAP",
+        "UFIN",
+        "ODIN",
+        "CNFN",
+    },
+
+    "contracting_and_construction_engineering": {
+        "WKOL",
+        "AALR",
+        "GIZA",
+        "ORAS",
+        "ICON",
+    },
+
+    "textiles_and_durables": {
+        "DSCW",
+        "UNIR",
+        "GTEX",
+        "KABO",
+        "ORWE",
+    },
+
+    "building_materials": {
+        "CERA",
+        "MBSC",
+        "ARCC",
+        "SVCE",
+        "LCSW",
+        "SCEM",
+        "MCQE",
+    },
+
+    "paper_and_packaging": {
+        "RAKT",
+        "UNIP",
+        "PRNT",
+        "NAPR",
     },
 }
 
