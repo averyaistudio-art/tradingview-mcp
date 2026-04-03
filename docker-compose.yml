@@ -3,12 +3,12 @@ version: '3.8'
 services:
   tradingview-mcp:
     build: .
-    image: atilaahmet/tradingview-mcp:latest
     container_name: tradingview-mcp
     ports:
-      - "8080:8000"
+      - "8765:8765"
     restart: unless-stopped
     environment:
-      # Optional: Add any future API keys or environment variables here
-      - PORT=8000
+      - PORT=8765
       - HOST=0.0.0.0
+    volumes:
+      - ./pinescripts:/app/pinescripts
